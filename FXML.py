@@ -24,11 +24,15 @@ def all_users(users_folders):
     will be printed. If there is no .VirtualBox folder inside the users folders
     an error will be raised and the program will close down."""
 
-    pass
+    all_folders = os.listdir(users_folders)
+    real_folders = []
+    for folder in all_folders:
+        if not folder[0] == '.':
+            
 
 
 # Does the .bak and the copy procedures
-def fxml(admin_xml, users):
+def fxml(admin_xml, users, check=False):
     """(str, list of strs) -> Bool"""
     pass
 
@@ -36,7 +40,18 @@ def fxml(admin_xml, users):
 # For Troubleshooting and feeding data
 def main(arguments):
     """(list of strings) -> None"""
-    pass
+    if len(arguments) == 3 and arguments[2].lower() == 'check':
+        vbox_folders = all_users(arguments[1])
+        print('Operation Complete: {}'.format(fxml(arguments[0],
+                                            vbox_folders, True))
+    elif len(arguments) == 2:
+        vbox_folders = all_users(arguments[1])
+        print('Operation Complete: {}'.format(fxml(arguments[0],
+                                            vbox_folders))
+    else:
+        print('Not Enough Arguments')
+        print('-> Please read the README for help with this script!')
+        return
 
 if __name__ == '__main__':
     main(sys.argv)
