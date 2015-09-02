@@ -2,7 +2,7 @@
 # The Assumption is made that an adminstrator has gone through and connected
 # the master to one 'perfect' VirtualBox.xml file.
 
-# $ python3.4 /AdminHome/.VirtualBox/VirtualBox.xml /RootUserFolderPath/
+# $ python3.4 /AdminHome/.VirtualBox/VirtualBox.xml /RootUserFolderPath/ groupid [check]
 # User1@CSLab:~$ pwd
 # /RootUserFolderPath/user1
 # -> ls /RootUserFolderPath
