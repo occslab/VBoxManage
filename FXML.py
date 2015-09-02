@@ -10,30 +10,48 @@
  
 # http://www.tutorialspoint.com/python/python_command_line_arguments.htm
 import sys # .argv
-import os # {Unix Only} .chmod(filename, 0o000),  .chown(file, ownerid, groupid)
+import os # {Unix Only} .chmod(filename, 0o000),  .chown(file, ownerid, groupid), isfile(), 
 from shutil import copy2
 
 # Returns all users absolute paths to their VirtualBox.xml
-def all_users(users_folders):
+def all_users(users_folders_loc):
     """(str) -> list of strs
 
     Takes root directories where all user folders are generated to pull
     pull down the exact path of their VirtualBox.xml
 
-    If for any reason there is no VirtualBox.xml to replace an error statement
-    will be printed. If there is no .VirtualBox folder inside the users folders
-    an error will be raised and the program will close down."""
+    If there is no .VirtualBox folder inside the users folders
+    an error will be printed and the folder will be skipped for file drop"""
 
-    all_folders = os.listdir(users_folders)
+    all_folders = os.listdir(users_folders_loc)
     real_folders = []
     for folder in all_folders:
         if not folder[0] == '.':
-            
+            current_user = '{}/{}'.format(users_folders_loc, folder)
+            folder_contents = os.listdir()
+            if '.VirtualBox' in folder_contents:
+                abs_path = '{}/.VirtualBox'.format(current_user)
+                if os.isdir(abs_path):
+                    real_folders.append(abs_path)
+                else:
+                    print('VirtualBox is not a folder?')
+                    print('Skipping: {}'.format(folder))
+            else:
+                print('No VirtualBox folder found!')
+                print('Skipping: {}'.format(folder))
+    if len(vbox_folders) < 1:
+        print('No Folders Were Detected . . . \n Exiting . . .')
+        exit()
+    return real_folders
 
 
 # Does the .bak and the copy procedures
 def fxml(admin_xml, users, check=False):
-    """(str, list of strs) -> Bool"""
+    """(str, list of strs) -> Bool
+
+
+    If for any reason there is no VirtualBox.xml to replace an error statement
+    will be printed. """
     pass
 
 
