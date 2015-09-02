@@ -94,11 +94,11 @@ def main(arguments):
     if len(arguments) == 4 and arguments[2].lower() == 'check':
         vbox_folders = all_users(arguments[1])
         print('Operation Complete: {}'.format(fxml(arguments[0],
-                                    vbox_folders, arguments[2], check=True))
+                                    vbox_folders, arguments[2], check=True)))
     elif len(arguments) == 3:
         vbox_folders = all_users(arguments[1])
         print('Operation Complete: {}'.format(fxml(arguments[0],
-                                            vbox_folders, arguments[2]))
+                                            vbox_folders, arguments[2])))
     else:
         print('Not Enough Arguments')
         print('-> Please read the README for help with this script!')
@@ -106,4 +106,3 @@ def main(arguments):
 
 if __name__ == '__main__':
     main(sys.argv)
-    
