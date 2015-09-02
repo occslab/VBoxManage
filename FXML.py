@@ -21,7 +21,11 @@ def all_users(users_folders_loc):
     pull down the exact path of their VirtualBox.xml
 
     If there is no .VirtualBox folder inside the users folders
-    an error will be printed and the folder will be skipped for file drop"""
+    an error will be printed and the folder will be skipped for file drop
+
+    This functions makes the assumption that you have all users collected 
+    in one 'home' folder on a computer. If you do not, another function
+    may appear in the future for your situation, until then stay strong."""
 
     all_folders = os.listdir(users_folders_loc)
     real_folders = []
