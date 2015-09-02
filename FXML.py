@@ -32,7 +32,7 @@ def all_users(users_folders_loc):
     for folder in all_folders:
         if not folder[0] == '.':
             current_user = '{}/{}'.format(users_folders_loc, folder)
-            folder_contents = os.listdir()
+            folder_contents = os.listdir(current_user)
             if '.VirtualBox' in folder_contents:
                 abs_path = '{}/.VirtualBox'.format(current_user)
                 if os.path.isdir(abs_path):
@@ -43,7 +43,7 @@ def all_users(users_folders_loc):
             else:
                 print('No VirtualBox folder found!')
                 print('Skipping: {}'.format(folder))
-    if len(vbox_folders) < 1:
+    if len(real_folders) < 1:
         print('No Folders Were Detected . . . \n Exiting . . .')
         exit()
     return real_folders
@@ -102,7 +102,8 @@ def main(arguments):
     else:
         print('Not Enough Arguments')
         print('-> Please read the README for help with this script!')
+        print(arguments)
         exit()
 
 if __name__ == '__main__':
-    main(sys.argv)
+    main(sys.argv[1:])
