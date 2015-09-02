@@ -74,7 +74,7 @@ def fxml(admin_xml, users, groupid, check=False):
             if not os.path.isfile('{}/VirtualBox.xml'.format(user_path)):
                 print('File DNE In: {}'.format(user_path))
                 problem_folders.append(user_path)
-        if len(problem_folders) > 0: 
+        if len(problem_folders) > 0:
             exit()
     else:
         for user in users:
@@ -94,7 +94,7 @@ def main(arguments):
     if len(arguments) == 4 and arguments[2].lower() == 'check':
         vbox_folders = all_users(arguments[1])
         print('Operation Complete: {}'.format(fxml(arguments[0],
-                                    vbox_folders, arguments[2] check=True))
+                                    vbox_folders, arguments[2], check=True))
     elif len(arguments) == 3:
         vbox_folders = all_users(arguments[1])
         print('Operation Complete: {}'.format(fxml(arguments[0],
@@ -106,3 +106,4 @@ def main(arguments):
 
 if __name__ == '__main__':
     main(sys.argv)
+    
