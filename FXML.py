@@ -53,7 +53,12 @@ def all_users(users_folders_loc):
 def fxml(admin_xml, users, groupid, check=False):
     """(str, list of strs, bool) -> Bool
 
+    Takes the direct path to the admins VirtualBox.xml, a dictionary of users
+    and their paths to the /user/.VirtualBox folder. the groupid all these users
+    SHOULD AND WILL BE universally a part of. Then finally a 'check' boolean
+    explained more in Problems.
 
+    Problems:
     If for any reason there is no VirtualBox.xml to replace an error statement
     will be printed. If check is True, then the program will not place ANY
     XML files into the folder and instead will just exit out. For some, no
