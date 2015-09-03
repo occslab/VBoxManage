@@ -11,6 +11,6 @@ else
     echo 'Checking for Current VM'
     if [ ! -d "${HOME}/VirtualBox VMs/VMNAMEHERE" ]
         then
-        # Begin Build Your VM
+        # Begin Building Your VM
     fi
 fi
