@@ -1,0 +1,18 @@
+# First create the VM
+VBoxManage createvm --name ${newVMNAME} --ostype Windows7_64 --register
+
+# Attach storage controllers
+VBoxManage storagectl ${newVMNAME} --name 'SATA Controler' --add sata --controller 'IntelAhci' --sataportcount 2 --hostiocache on --bootable on
+
+# Basic Stuff RAM & VRAM, usb, pae, audio, audcontroller
+VBoxManage modifyvm ${newVMNAME} --memory 4096 --vram 128 --pae off --cpus 2 --boot 1 disk
+# Attach Internet
+
+# Attach HDD
+VBoxManage storageattach --storagectl sata --port 0 --device 0 --type hdd --medium '/home/vbox/fall2015.vdi'
+VBoxManage modifyhd ${newVMNAME} --type writethrough
+
+# Suppress Annoying Messages
+VBoxManage setextradata global "GUI/SuppressMessages" ",remindAboutAutoCapture,remindAboutWrongColorDepth,remindAboutMouseIntegrationOn"
+
+# Extra Cosmetics
