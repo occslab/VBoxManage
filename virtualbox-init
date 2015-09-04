@@ -20,4 +20,4 @@ VBoxManage modifyhd "${newVMNAME}" --type writethrough
 VBoxManage setextradata global "GUI/SuppressMessages" ",remindAboutAutoCapture,remindAboutWrongColorDepth,remindAboutMouseIntegrationOn"
 
 # Extra Cosmetics
-VBoxManage --boot1 disk --boot2 none --boot3 none
+VBoxManage modifyvm $newVMNAME --boot1 disk --boot2 none --boot3 none
