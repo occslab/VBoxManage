@@ -15,6 +15,6 @@ else
     if [ ! -d "${HOME}/VirtualBox VMs/${newVMNAME}" ]
         then
         # Begin Building Your VM
-        initpath
+        $initpath
     fi
 fi
