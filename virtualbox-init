@@ -14,7 +14,7 @@ VBoxManage modifyvm "${newVMNAME}" --memory 4096 --vram 128 --pae off --cpus 2 -
 
 # Attach HDD
 VBoxManage storageattach "${newVMNAME}" --storagectl 'SATA' --port 0 --device 0 --type hdd --medium '/home/vbox/fall2015.vdi'
-VBoxManage modifyhd "${newVMNAME}" --type writethrough
+VBoxManage modifyhd '/home/vbox/fall2015.vdi' --type writethrough
 
 # Suppress Annoying Messages
 VBoxManage setextradata global "GUI/SuppressMessages" ",remindAboutAutoCapture,remindAboutWrongColorDepth,remindAboutMouseIntegrationOn"
