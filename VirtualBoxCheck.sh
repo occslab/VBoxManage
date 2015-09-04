@@ -4,9 +4,8 @@ newVMNAME="fall2015"
 initpath="./virtualbox-init"
 if [ -d "${HOME}/VirtualBox VMs/${oldVMNAME}" ]
     then
-    VBoxManage showvminfo $oldVMNAME
-    VBoxManage unregistervm "${oldVMName}" --delete
-    # rm -rf "${HOME}/VirtualBox VMs/windows-7"
+    VBoxManage unregistervm "${oldVMName}" 
+    rm -rf "${HOME}/VirtualBox VMs/${oldVMNAME}"
     # Begin Building Your VM
     $initpath
 else
