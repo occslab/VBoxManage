@@ -1,7 +1,9 @@
 #!/bin/bash
-if [ -d "${HOME}/VirtualBox VMs/windows-7" ]
+$oldVMNAME = "windows-7"
+$newVMNAME
+if [ -d "${HOME}/VirtualBox VMs/${oldVMNAME}-7" ]
     then
-    VBoxManage showvminfo "windows-7"
+    VBoxManage showvminfo $oldVMNAME
     # VBoxManage unregistervm "windows-7"
     # rm -rf "${HOME}/VirtualBox VMs/windows-7"
     # Begin Building Your VM
@@ -9,7 +11,7 @@ if [ -d "${HOME}/VirtualBox VMs/windows-7" ]
 else
     # Check to make sure your vm is built
     echo 'Checking for Current VM'
-    if [ ! -d "${HOME}/VirtualBox VMs/VMNAMEHERE" ]
+    if [ ! -d "${HOME}/VirtualBox VMs/${newVMNAME}" ]
         then
         # Begin Building Your VM
     fi
