@@ -8,7 +8,7 @@ if [ -d "${HOME}/VirtualBox VMs/${oldVMNAME}" ]
     VBoxManage unregistervm "${oldVMName}" --delete
     # rm -rf "${HOME}/VirtualBox VMs/windows-7"
     # Begin Building Your VM
-    initpath
+    $initpath
 else
     # Check to make sure your vm is built
     echo 'Checking for Current VM'
