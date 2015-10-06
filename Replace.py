@@ -1,8 +1,9 @@
 import os
+import sys
 from shututil import copyfile
 
 def replace(file_path, file_name, uni_home, cfolder=None):
-    """(str, str) -> None
+    """(str, str, str, str) -> None
 
     Takes the file path of a plain text file, like a Icon.desktop file,
     and unified home folder link. This would be for users who don't use
@@ -37,6 +38,18 @@ def gather():
 
     Gathers command-line input and returns it. The format is appropriate
     for the replace function"""
-    pass
+    arguments = sys.argv[1:]
+    if len(arguments) < 3:
+        print('Error! Not Enough Arguments')
+        exit()
+    elif len(arguments) == 4:
+        cfolder = arguments[3]
+    else:
+        cfolder = None
+    file_path = arguments[0]
+    file_name = arguments[1]
+    uni_home = arguments[2]
+    return [file_path, file_path, uni_home, cfolder]
 if __name__ == '__main__'
-
+    args = gather()
+    replace(args[0], args[1], args[2], args[3])
